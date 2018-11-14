@@ -5,7 +5,7 @@ public class Main
 
     public static void main(String[] args)
     {
-	// write your code here
+
     }
 
     public static int[] swap(int[] array, int pos1, int pos2)
@@ -23,5 +23,20 @@ public class Main
         {
             
         }
+    }
+
+    public void selectionSort(int[] arr)
+    {
+
+    }
+
+    public int[] randIntArr(int count)
+    {
+        int[] arr = new int[count];
+        for(int i = 0; i < count; i++)
+        {
+            arr[i] = (int)(Math.random()*10000);
+        }
+        return arr;
     }
 }
