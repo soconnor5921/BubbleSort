@@ -5,7 +5,8 @@ public class Main
 
     public static void main(String[] args)
     {
-
+        int[] arr = randIntArr(10);
+        System.out.println(partition(arr, 2, 5));
     }
 
     public static int[] swap(int[] array, int pos1, int pos2)
@@ -30,7 +31,7 @@ public class Main
 
     }
 
-    public int[] randIntArr(int count)
+    public static int[] randIntArr(int count)
     {
         int[] arr = new int[count];
         for(int i = 0; i < count; i++)
@@ -38,5 +39,22 @@ public class Main
             arr[i] = (int)(Math.random()*10000);
         }
         return arr;
+    }
+
+    public static int partition(int[] arr, int left, int right)
+    {
+        int pivot = arr[right];
+        int i = left-1;
+        int temp;
+        for(int j = left; j < right; j++)
+        {
+            if(arr[j] <= pivot)
+            {
+                i++;
+                temp = i; i = j; j = temp;
+            }
+        }
+        temp = arr[i+1]; arr[i+1] = arr[right]; arr[right] = temp;
+        return i+1;
     }
 }
