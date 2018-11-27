@@ -6,7 +6,9 @@ public class Main
     public static void main(String[] args)
     {
         int[] arr = randIntArr(10);
-        System.out.println(partition(arr, 2, 5));
+        System.out.println(arr);
+        quickSort(arr, 2, 5);
+        System.out.println(arr);
     }
 
     public static int[] swap(int[] array, int pos1, int pos2)
@@ -19,11 +21,7 @@ public class Main
 
     public void bubbleSort(int[] arr)
     {
-        boolean running = true;
-        while(running)
-        {
-            
-        }
+
     }
 
     public void selectionSort(int[] arr)
@@ -56,5 +54,15 @@ public class Main
         }
         temp = arr[i+1]; arr[i+1] = arr[right]; arr[right] = temp;
         return i+1;
+    }
+
+    public static void quickSort(int[] arr, int left, int right)
+    {
+        if(left < right)
+        {
+            int pivot = partition(arr, left, right);
+            quickSort(arr, left, pivot -1);
+            quickSort(arr, pivot + 1, right);
+        }
     }
 }
